@@ -37,17 +37,14 @@ public class Application {
             ArrayConvertorService convertorService = new ArrayConvertorService();
             JoinerService joinerService = new JoinerService();
             // ArrayList
-            Joiner<ArrayList<Pair>> arrayListJoiner = new ArrayListJoiner();
             joinerService.innerJoin(arrayFromFirstFile, arrayFromSecondFile, args[2] + ARRAY_LIST_OUTPUT_NAME, new ArrayListJoiner());
             // sorted LinkedList
             System.out.println("----------");
-            Joiner<LinkedList<Pair>> linkedListJoiner = new LinkedListJoiner();
             LinkedList<Pair> pairsLinkedListFirst = convertorService.convertToLinkedList(arrayFromFirstFile);
             LinkedList<Pair> pairsLinkedListSecond = convertorService.convertToLinkedList(arrayFromSecondFile);
             joinerService.innerJoin(pairsLinkedListFirst, pairsLinkedListSecond, args[2] + LINKED_LIST_OUTPUT_NAME, new LinkedListJoiner());
             // HashMap
             System.out.println("-----------");
-            Joiner<HashMap<Long, List<String>>> hashMapJoiner = new HashMapJoiner();
             HashMap<Long, List<String>> pairsHashMapFirst = convertorService.convertToHashMap(arrayFromFirstFile);
             HashMap<Long, List<String>> pairsHashMapSecond = convertorService.convertToHashMap(arrayFromSecondFile);
             joinerService.innerJoin(pairsHashMapFirst, pairsHashMapSecond, args[2] + HASH_MAP_OUTPUT_NAME, new HashMapJoiner());
